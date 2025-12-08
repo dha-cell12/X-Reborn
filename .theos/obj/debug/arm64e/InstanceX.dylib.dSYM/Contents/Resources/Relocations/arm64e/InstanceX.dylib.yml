@@ -5,63 +5,85 @@ relocations:
   - { offset: 0x1E, size: 0x8, addend: 0x0, symName: __ZL24_logosLocalCtor_f35a0c0fiPPcS0_, symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x18 }
   - { offset: 0x2B, size: 0x8, addend: 0x0, symName: __ZL24_logosLocalCtor_f35a0c0fiPPcS0_, symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x18 }
   - { offset: 0xA5, size: 0x8, addend: 0x0, symName: __ZL15_logosLocalInitv, symObjAddr: 0x0, symBinAddr: 0x4018, symSize: 0x84 }
-  - { offset: 0xCC, size: 0x8, addend: 0x0, symName: '__ZL58_logos_orig$_ungrouped$SBIconView$applicationShortcutItems', symObjAddr: 0x37F0, symBinAddr: 0x109A0, symSize: 0x0 }
-  - { offset: 0xA2C, size: 0x8, addend: 0x0, symName: '__ZL74_logos_orig$_ungrouped$SBIconView$performActionForShortcutItem$fromSource$', symObjAddr: 0x37F8, symBinAddr: 0x109A8, symSize: 0x0 }
+  - { offset: 0xCC, size: 0x8, addend: 0x0, symName: '__ZL58_logos_orig$_ungrouped$SBIconView$applicationShortcutItems', symObjAddr: 0x37F0, symBinAddr: 0x14BB8, symSize: 0x0 }
+  - { offset: 0xA2C, size: 0x8, addend: 0x0, symName: '__ZL74_logos_orig$_ungrouped$SBIconView$performActionForShortcutItem$fromSource$', symObjAddr: 0x37F8, symBinAddr: 0x14BC0, symSize: 0x0 }
   - { offset: 0xACA, size: 0x8, addend: 0x0, symName: __ZL15_logosLocalInitv, symObjAddr: 0x0, symBinAddr: 0x4018, symSize: 0x84 }
   - { offset: 0xB00, size: 0x8, addend: 0x0, symName: '__ZL60_logos_method$_ungrouped$SBIconView$applicationShortcutItemsP10SBIconViewP13objc_selector', symObjAddr: 0x84, symBinAddr: 0x409C, symSize: 0x760 }
   - { offset: 0xBA5, size: 0x8, addend: 0x0, symName: '__ZL76_logos_method$_ungrouped$SBIconView$performActionForShortcutItem$fromSource$P10SBIconViewP13objc_selectorP25UIApplicationShortcutItemP11objc_object', symObjAddr: 0x7E4, symBinAddr: 0x47FC, symSize: 0x434 }
   - { offset: 0xCD5, size: 0x8, addend: 0x0, symName: '+[ContainerManager shared]', symObjAddr: 0x0, symBinAddr: 0x4C30, symSize: 0x90 }
   - { offset: 0xCE2, size: 0x8, addend: 0x0, symName: '+[ContainerManager shared]', symObjAddr: 0x0, symBinAddr: 0x4C30, symSize: 0x90 }
-  - { offset: 0xD0B, size: 0x8, addend: 0x0, symName: '__ZZ26+[ContainerManager shared]E1S', symObjAddr: 0x2510, symBinAddr: 0x109B0, symSize: 0x0 }
-  - { offset: 0xD20, size: 0x8, addend: 0x0, symName: '__ZZ26+[ContainerManager shared]E4once', symObjAddr: 0x2518, symBinAddr: 0x109B8, symSize: 0x0 }
+  - { offset: 0xD0B, size: 0x8, addend: 0x0, symName: '__ZZ26+[ContainerManager shared]E1S', symObjAddr: 0x3080, symBinAddr: 0x14BC8, symSize: 0x0 }
+  - { offset: 0xD20, size: 0x8, addend: 0x0, symName: '__ZZ26+[ContainerManager shared]E4once', symObjAddr: 0x3088, symBinAddr: 0x14BD0, symSize: 0x0 }
   - { offset: 0xEA8, size: 0x8, addend: 0x0, symName: '___26+[ContainerManager shared]_block_invoke', symObjAddr: 0x90, symBinAddr: 0x4CC0, symSize: 0x50 }
-  - { offset: 0xED0, size: 0x8, addend: 0x0, symName: '-[ContainerManager useLibCrane]', symObjAddr: 0xE0, symBinAddr: 0x4D10, symSize: 0x40 }
-  - { offset: 0xF14, size: 0x8, addend: 0x0, symName: __ZL7IXClassP8NSString, symObjAddr: 0x120, symBinAddr: 0x4D50, symSize: 0x90 }
-  - { offset: 0xF40, size: 0x8, addend: 0x0, symName: '-[ContainerManager createContainerForBundle:instanceIndex:]', symObjAddr: 0x1B0, symBinAddr: 0x4DE0, symSize: 0x664 }
-  - { offset: 0xFE5, size: 0x8, addend: 0x0, symName: '-[ContainerManager prepareLaunchEnvironmentForContainer:intoEnv:]', symObjAddr: 0x814, symBinAddr: 0x5444, symSize: 0x3C4 }
-  - { offset: 0x116C, size: 0x8, addend: 0x0, symName: __Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode, symObjAddr: 0x0, symBinAddr: 0x5808, symSize: 0x3DC }
-  - { offset: 0x15F4, size: 0x8, addend: 0x0, symName: __Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode, symObjAddr: 0x0, symBinAddr: 0x5808, symSize: 0x3DC }
-  - { offset: 0x16A2, size: 0x8, addend: 0x0, symName: __ZL16windowsForBundleP8NSString, symObjAddr: 0x3DC, symBinAddr: 0x5BE4, symSize: 0x6B0 }
-  - { offset: 0x1708, size: 0x8, addend: 0x0, symName: __ZL16slotFrameForMode12IXLayoutModem6CGSize, symObjAddr: 0xA8C, symBinAddr: 0x6294, symSize: 0x254 }
-  - { offset: 0x17DE, size: 0x8, addend: 0x0, symName: ____Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode_block_invoke, symObjAddr: 0xCE0, symBinAddr: 0x64E8, symSize: 0x110 }
-  - { offset: 0x1828, size: 0x8, addend: 0x0, symName: ____Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode_block_invoke_2, symObjAddr: 0xDF0, symBinAddr: 0x65F8, symSize: 0x64 }
-  - { offset: 0x1872, size: 0x8, addend: 0x0, symName: ___copy_helper_block_ea8_32s, symObjAddr: 0xE54, symBinAddr: 0x665C, symSize: 0x3C }
-  - { offset: 0x1896, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_ea8_32s, symObjAddr: 0xE90, symBinAddr: 0x6698, symSize: 0x30 }
-  - { offset: 0x18B2, size: 0x8, addend: 0x0, symName: __ZL10CGRectMakedddd, symObjAddr: 0xEC0, symBinAddr: 0x66C8, symSize: 0x4C }
-  - { offset: 0x2B5D, size: 0x8, addend: 0x0, symName: '+[IXInstanceManager shared]', symObjAddr: 0x0, symBinAddr: 0x6714, symSize: 0x90 }
-  - { offset: 0x2B6A, size: 0x8, addend: 0x0, symName: '+[IXInstanceManager shared]', symObjAddr: 0x0, symBinAddr: 0x6714, symSize: 0x90 }
-  - { offset: 0x2B93, size: 0x8, addend: 0x0, symName: '__ZZ27+[IXInstanceManager shared]E1S', symObjAddr: 0x6BB8, symBinAddr: 0x109C0, symSize: 0x0 }
-  - { offset: 0x2BA8, size: 0x8, addend: 0x0, symName: '__ZZ27+[IXInstanceManager shared]E4once', symObjAddr: 0x6BC0, symBinAddr: 0x109C8, symSize: 0x0 }
-  - { offset: 0x2D19, size: 0x8, addend: 0x0, symName: '___27+[IXInstanceManager shared]_block_invoke', symObjAddr: 0x90, symBinAddr: 0x67A4, symSize: 0xB8 }
-  - { offset: 0x2D41, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager createInstancesForBundle:count:]', symObjAddr: 0x148, symBinAddr: 0x685C, symSize: 0x714 }
-  - { offset: 0x2DE1, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager addInstanceForBundle:]', symObjAddr: 0x85C, symBinAddr: 0x6F70, symSize: 0x428 }
-  - { offset: 0x2E3D, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _launchInstanceForBundle:index:]', symObjAddr: 0xC84, symBinAddr: 0x7398, symSize: 0x12EC }
-  - { offset: 0x30F8, size: 0x8, addend: 0x0, symName: '___52-[IXInstanceManager _launchInstanceForBundle:index:]_block_invoke', symObjAddr: 0x1F70, symBinAddr: 0x8684, symSize: 0x1F0 }
-  - { offset: 0x3161, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager handleProcessExitPid:]', symObjAddr: 0x21CC, symBinAddr: 0x8874, symSize: 0x460 }
-  - { offset: 0x31CE, size: 0x8, addend: 0x0, symName: '___42-[IXInstanceManager handleProcessExitPid:]_block_invoke', symObjAddr: 0x262C, symBinAddr: 0x8CD4, symSize: 0xB0 }
-  - { offset: 0x3235, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _applyLayoutForBundle:]', symObjAddr: 0x26DC, symBinAddr: 0x8D84, symSize: 0x308 }
-  - { offset: 0x3291, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager apps]', symObjAddr: 0x29E4, symBinAddr: 0x908C, symSize: 0x1C }
-  - { offset: 0x32C7, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager setApps:]', symObjAddr: 0x2A00, symBinAddr: 0x90A8, symSize: 0x38 }
-  - { offset: 0x3305, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager .cxx_destruct]', symObjAddr: 0x2A38, symBinAddr: 0x90E0, symSize: 0x34 }
-  - { offset: 0x3337, size: 0x8, addend: 0x0, symName: __Z9IXManagerv, symObjAddr: 0x2A6C, symBinAddr: 0x9114, symSize: 0x20 }
-  - { offset: 0x363E, size: 0x8, addend: 0x0, symName: '+[IXInstanceRecord supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x9134, symSize: 0x1C }
-  - { offset: 0x375F, size: 0x8, addend: 0x0, symName: '+[IXInstanceRecord supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x9134, symSize: 0x1C }
-  - { offset: 0x3795, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord encodeWithCoder:]', symObjAddr: 0x1C, symBinAddr: 0x9150, symSize: 0x250 }
-  - { offset: 0x37D5, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord initWithCoder:]', symObjAddr: 0x26C, symBinAddr: 0x93A0, symSize: 0x31C }
-  - { offset: 0x3819, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord bundleID]', symObjAddr: 0x588, symBinAddr: 0x96BC, symSize: 0x1C }
-  - { offset: 0x384F, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setBundleID:]', symObjAddr: 0x5A4, symBinAddr: 0x96D8, symSize: 0x3C }
-  - { offset: 0x388D, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord containerID]', symObjAddr: 0x5E0, symBinAddr: 0x9714, symSize: 0x1C }
-  - { offset: 0x38C3, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setContainerID:]', symObjAddr: 0x5FC, symBinAddr: 0x9730, symSize: 0x3C }
-  - { offset: 0x3901, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord sceneID]', symObjAddr: 0x638, symBinAddr: 0x976C, symSize: 0x1C }
-  - { offset: 0x3937, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setSceneID:]', symObjAddr: 0x654, symBinAddr: 0x9788, symSize: 0x3C }
-  - { offset: 0x3975, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord pid]', symObjAddr: 0x690, symBinAddr: 0x97C4, symSize: 0x1C }
-  - { offset: 0x39AB, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setPid:]', symObjAddr: 0x6AC, symBinAddr: 0x97E0, symSize: 0x24 }
-  - { offset: 0x39E9, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord slotIndex]', symObjAddr: 0x6D0, symBinAddr: 0x9804, symSize: 0x1C }
-  - { offset: 0x3A1F, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setSlotIndex:]', symObjAddr: 0x6EC, symBinAddr: 0x9820, symSize: 0x24 }
-  - { offset: 0x3A5D, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord .cxx_destruct]', symObjAddr: 0x710, symBinAddr: 0x9844, symSize: 0x5C }
-  - { offset: 0x3A8F, size: 0x8, addend: 0x0, symName: '-[IXAppState bundleID]', symObjAddr: 0x76C, symBinAddr: 0x98A0, symSize: 0x1C }
-  - { offset: 0x3AC5, size: 0x8, addend: 0x0, symName: '-[IXAppState setBundleID:]', symObjAddr: 0x788, symBinAddr: 0x98BC, symSize: 0x3C }
-  - { offset: 0x3B03, size: 0x8, addend: 0x0, symName: '-[IXAppState instances]', symObjAddr: 0x7C4, symBinAddr: 0x98F8, symSize: 0x1C }
-  - { offset: 0x3B39, size: 0x8, addend: 0x0, symName: '-[IXAppState setInstances:]', symObjAddr: 0x7E0, symBinAddr: 0x9914, symSize: 0x38 }
-  - { offset: 0x3B77, size: 0x8, addend: 0x0, symName: '-[IXAppState .cxx_destruct]', symObjAddr: 0x818, symBinAddr: 0x994C, symSize: 0x4C }
+  - { offset: 0xED0, size: 0x8, addend: 0x0, symName: '-[ContainerManager _shmNamespaceForContainer:]', symObjAddr: 0xE0, symBinAddr: 0x4D10, symSize: 0x238 }
+  - { offset: 0xF30, size: 0x8, addend: 0x0, symName: '-[ContainerManager useLibCrane]', symObjAddr: 0x318, symBinAddr: 0x4F48, symSize: 0x40 }
+  - { offset: 0xF74, size: 0x8, addend: 0x0, symName: __ZL7IXClassP8NSString, symObjAddr: 0x358, symBinAddr: 0x4F88, symSize: 0x90 }
+  - { offset: 0xFA0, size: 0x8, addend: 0x0, symName: '-[ContainerManager createContainerForBundle:instanceIndex:]', symObjAddr: 0x3E8, symBinAddr: 0x5018, symSize: 0x664 }
+  - { offset: 0x1045, size: 0x8, addend: 0x0, symName: '-[ContainerManager prepareLaunchEnvironmentForContainer:intoEnv:]', symObjAddr: 0xA4C, symBinAddr: 0x567C, symSize: 0x4F8 }
+  - { offset: 0x10CA, size: 0x8, addend: 0x0, symName: '-[ContainerManager removeContainerWithID:]', symObjAddr: 0xF44, symBinAddr: 0x5B74, symSize: 0x26C }
+  - { offset: 0x124B, size: 0x8, addend: 0x0, symName: __Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode, symObjAddr: 0x0, symBinAddr: 0x5DE0, symSize: 0x3DC }
+  - { offset: 0x16D3, size: 0x8, addend: 0x0, symName: __Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode, symObjAddr: 0x0, symBinAddr: 0x5DE0, symSize: 0x3DC }
+  - { offset: 0x1781, size: 0x8, addend: 0x0, symName: __ZL16windowsForBundleP8NSString, symObjAddr: 0x3DC, symBinAddr: 0x61BC, symSize: 0x6B0 }
+  - { offset: 0x17E7, size: 0x8, addend: 0x0, symName: __ZL16slotFrameForMode12IXLayoutModem6CGSize, symObjAddr: 0xA8C, symBinAddr: 0x686C, symSize: 0x254 }
+  - { offset: 0x18BD, size: 0x8, addend: 0x0, symName: ____Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode_block_invoke, symObjAddr: 0xCE0, symBinAddr: 0x6AC0, symSize: 0x110 }
+  - { offset: 0x1907, size: 0x8, addend: 0x0, symName: ____Z23IXApplyLayoutsForBundleP8NSStringP7NSArray12IXLayoutMode_block_invoke_2, symObjAddr: 0xDF0, symBinAddr: 0x6BD0, symSize: 0x64 }
+  - { offset: 0x1951, size: 0x8, addend: 0x0, symName: ___copy_helper_block_ea8_32s, symObjAddr: 0xE54, symBinAddr: 0x6C34, symSize: 0x3C }
+  - { offset: 0x1975, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_ea8_32s, symObjAddr: 0xE90, symBinAddr: 0x6C70, symSize: 0x30 }
+  - { offset: 0x1991, size: 0x8, addend: 0x0, symName: __ZL10CGRectMakedddd, symObjAddr: 0xEC0, symBinAddr: 0x6CA0, symSize: 0x4C }
+  - { offset: 0x2C3C, size: 0x8, addend: 0x0, symName: '+[IXInstanceManager shared]', symObjAddr: 0x0, symBinAddr: 0x6CEC, symSize: 0x90 }
+  - { offset: 0x2C55, size: 0x8, addend: 0x0, symName: __ZL12kIXPrefsPath, symObjAddr: 0x5E08, symBinAddr: 0x10208, symSize: 0x0 }
+  - { offset: 0x2C9D, size: 0x8, addend: 0x0, symName: '+[IXInstanceManager shared]', symObjAddr: 0x0, symBinAddr: 0x6CEC, symSize: 0x90 }
+  - { offset: 0x2CC6, size: 0x8, addend: 0x0, symName: '__ZZ27+[IXInstanceManager shared]E1S', symObjAddr: 0xB660, symBinAddr: 0x14BD8, symSize: 0x0 }
+  - { offset: 0x2CDB, size: 0x8, addend: 0x0, symName: '__ZZ27+[IXInstanceManager shared]E4once', symObjAddr: 0xB668, symBinAddr: 0x14BE0, symSize: 0x0 }
+  - { offset: 0x2EB9, size: 0x8, addend: 0x0, symName: '___27+[IXInstanceManager shared]_block_invoke', symObjAddr: 0x90, symBinAddr: 0x6D7C, symSize: 0x50 }
+  - { offset: 0x2EE1, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager init]', symObjAddr: 0xE0, symBinAddr: 0x6DCC, symSize: 0x164 }
+  - { offset: 0x2F17, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _clampCount:]', symObjAddr: 0x244, symBinAddr: 0x6F30, symSize: 0x9C }
+  - { offset: 0x2F5B, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _loadSavedConfig]', symObjAddr: 0x2E0, symBinAddr: 0x6FCC, symSize: 0x5DC }
+  - { offset: 0x3004, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _persistConfig]', symObjAddr: 0x8BC, symBinAddr: 0x75A8, symSize: 0x6B0 }
+  - { offset: 0x30AB, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _startGCTimer]', symObjAddr: 0xF6C, symBinAddr: 0x7C58, symSize: 0x1F4 }
+  - { offset: 0x311B, size: 0x8, addend: 0x0, symName: '___34-[IXInstanceManager _startGCTimer]_block_invoke', symObjAddr: 0x1160, symBinAddr: 0x7E4C, symSize: 0x78 }
+  - { offset: 0x3154, size: 0x8, addend: 0x0, symName: ___copy_helper_block_ea8_32w, symObjAddr: 0x11D8, symBinAddr: 0x7EC4, symSize: 0x38 }
+  - { offset: 0x3178, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_ea8_32w, symObjAddr: 0x1210, symBinAddr: 0x7EFC, symSize: 0x2C }
+  - { offset: 0x3194, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _runGarbageCollection]', symObjAddr: 0x123C, symBinAddr: 0x7F28, symSize: 0xF9C }
+  - { offset: 0x328B, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager createInstancesForBundle:count:]', symObjAddr: 0x21D8, symBinAddr: 0x8EC4, symSize: 0x6D0 }
+  - { offset: 0x332B, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager addInstanceForBundle:]', symObjAddr: 0x28A8, symBinAddr: 0x9594, symSize: 0x4DC }
+  - { offset: 0x3388, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _launchInstanceForBundle:index:]', symObjAddr: 0x2D84, symBinAddr: 0x9A70, symSize: 0x13FC }
+  - { offset: 0x3643, size: 0x8, addend: 0x0, symName: '___52-[IXInstanceManager _launchInstanceForBundle:index:]_block_invoke', symObjAddr: 0x4180, symBinAddr: 0xAE6C, symSize: 0x1F0 }
+  - { offset: 0x36AC, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager handleProcessExitPid:]', symObjAddr: 0x43DC, symBinAddr: 0xB05C, symSize: 0x460 }
+  - { offset: 0x371D, size: 0x8, addend: 0x0, symName: '___42-[IXInstanceManager handleProcessExitPid:]_block_invoke', symObjAddr: 0x483C, symBinAddr: 0xB4BC, symSize: 0xB0 }
+  - { offset: 0x378A, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager _applyLayoutForBundle:]', symObjAddr: 0x48EC, symBinAddr: 0xB56C, symSize: 0x594 }
+  - { offset: 0x3815, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager apps]', symObjAddr: 0x4E80, symBinAddr: 0xBB00, symSize: 0x1C }
+  - { offset: 0x384B, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager setApps:]', symObjAddr: 0x4E9C, symBinAddr: 0xBB1C, symSize: 0x38 }
+  - { offset: 0x3889, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager idleTimeout]', symObjAddr: 0x4ED4, symBinAddr: 0xBB54, symSize: 0x1C }
+  - { offset: 0x38BF, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager setIdleTimeout:]', symObjAddr: 0x4EF0, symBinAddr: 0xBB70, symSize: 0x24 }
+  - { offset: 0x38FD, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager gcTimer]', symObjAddr: 0x4F14, symBinAddr: 0xBB94, symSize: 0x1C }
+  - { offset: 0x3933, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager setGcTimer:]', symObjAddr: 0x4F30, symBinAddr: 0xBBB0, symSize: 0x38 }
+  - { offset: 0x3971, size: 0x8, addend: 0x0, symName: '-[IXInstanceManager .cxx_destruct]', symObjAddr: 0x4F68, symBinAddr: 0xBBE8, symSize: 0x4C }
+  - { offset: 0x39A3, size: 0x8, addend: 0x0, symName: __Z9IXManagerv, symObjAddr: 0x4FB4, symBinAddr: 0xBC34, symSize: 0x20 }
+  - { offset: 0x3D30, size: 0x8, addend: 0x0, symName: '+[IXInstanceRecord supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0xBC54, symSize: 0x1C }
+  - { offset: 0x3EAB, size: 0x8, addend: 0x0, symName: '+[IXInstanceRecord supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0xBC54, symSize: 0x1C }
+  - { offset: 0x3EE1, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord encodeWithCoder:]', symObjAddr: 0x1C, symBinAddr: 0xBC70, symSize: 0x2CC }
+  - { offset: 0x3F21, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord initWithCoder:]', symObjAddr: 0x2E8, symBinAddr: 0xBF3C, symSize: 0x3B8 }
+  - { offset: 0x3F65, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord bundleID]', symObjAddr: 0x6A0, symBinAddr: 0xC2F4, symSize: 0x1C }
+  - { offset: 0x3F9B, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setBundleID:]', symObjAddr: 0x6BC, symBinAddr: 0xC310, symSize: 0x3C }
+  - { offset: 0x3FD9, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord containerID]', symObjAddr: 0x6F8, symBinAddr: 0xC34C, symSize: 0x1C }
+  - { offset: 0x400F, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setContainerID:]', symObjAddr: 0x714, symBinAddr: 0xC368, symSize: 0x3C }
+  - { offset: 0x404D, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord sceneID]', symObjAddr: 0x750, symBinAddr: 0xC3A4, symSize: 0x1C }
+  - { offset: 0x4083, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setSceneID:]', symObjAddr: 0x76C, symBinAddr: 0xC3C0, symSize: 0x3C }
+  - { offset: 0x40C1, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord pid]', symObjAddr: 0x7A8, symBinAddr: 0xC3FC, symSize: 0x1C }
+  - { offset: 0x40F7, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setPid:]', symObjAddr: 0x7C4, symBinAddr: 0xC418, symSize: 0x24 }
+  - { offset: 0x4135, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord slotIndex]', symObjAddr: 0x7E8, symBinAddr: 0xC43C, symSize: 0x1C }
+  - { offset: 0x416B, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setSlotIndex:]', symObjAddr: 0x804, symBinAddr: 0xC458, symSize: 0x24 }
+  - { offset: 0x41A9, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord lastUsedAt]', symObjAddr: 0x828, symBinAddr: 0xC47C, symSize: 0x1C }
+  - { offset: 0x41DF, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord setLastUsedAt:]', symObjAddr: 0x844, symBinAddr: 0xC498, symSize: 0x38 }
+  - { offset: 0x421D, size: 0x8, addend: 0x0, symName: '-[IXInstanceRecord .cxx_destruct]', symObjAddr: 0x87C, symBinAddr: 0xC4D0, symSize: 0x6C }
+  - { offset: 0x424F, size: 0x8, addend: 0x0, symName: '-[IXAppState bundleID]', symObjAddr: 0x8E8, symBinAddr: 0xC53C, symSize: 0x1C }
+  - { offset: 0x4285, size: 0x8, addend: 0x0, symName: '-[IXAppState setBundleID:]', symObjAddr: 0x904, symBinAddr: 0xC558, symSize: 0x3C }
+  - { offset: 0x42C3, size: 0x8, addend: 0x0, symName: '-[IXAppState instances]', symObjAddr: 0x940, symBinAddr: 0xC594, symSize: 0x1C }
+  - { offset: 0x42F9, size: 0x8, addend: 0x0, symName: '-[IXAppState setInstances:]', symObjAddr: 0x95C, symBinAddr: 0xC5B0, symSize: 0x38 }
+  - { offset: 0x4337, size: 0x8, addend: 0x0, symName: '-[IXAppState desiredCount]', symObjAddr: 0x994, symBinAddr: 0xC5E8, symSize: 0x1C }
+  - { offset: 0x436D, size: 0x8, addend: 0x0, symName: '-[IXAppState setDesiredCount:]', symObjAddr: 0x9B0, symBinAddr: 0xC604, symSize: 0x24 }
+  - { offset: 0x43AB, size: 0x8, addend: 0x0, symName: '-[IXAppState lastActiveAt]', symObjAddr: 0x9D4, symBinAddr: 0xC628, symSize: 0x1C }
+  - { offset: 0x43E1, size: 0x8, addend: 0x0, symName: '-[IXAppState setLastActiveAt:]', symObjAddr: 0x9F0, symBinAddr: 0xC644, symSize: 0x38 }
+  - { offset: 0x441F, size: 0x8, addend: 0x0, symName: '-[IXAppState .cxx_destruct]', symObjAddr: 0xA28, symBinAddr: 0xC67C, symSize: 0x5C }
 ...

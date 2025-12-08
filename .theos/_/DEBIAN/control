@@ -5,5 +5,5 @@ Description: Run 2-4 isolated instances of the same app using per-instance conta
 Maintainer: ZodaciOS
 Section: Tweaks
 Architecture: iphoneos-arm64
-Version: 1.0.0-1+debug
-Installed-Size: 432
+Version: 1.0.0-2+debug
+Installed-Size: 484

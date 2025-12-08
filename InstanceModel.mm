@@ -12,6 +12,7 @@
     [coder encodeObject:self.sceneID forKey:@"sceneID"];
     [coder encodeInt:self.pid forKey:@"pid"];
     [coder encodeInteger:self.slotIndex forKey:@"slotIndex"];
+    [coder encodeObject:self.lastUsedAt forKey:@"lastUsedAt"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -22,6 +23,7 @@
         self.sceneID = [coder decodeObjectOfClass:[NSString class] forKey:@"sceneID"];
         self.pid = [coder decodeIntForKey:@"pid"];
         self.slotIndex = [coder decodeIntegerForKey:@"slotIndex"];
+        self.lastUsedAt = [coder decodeObjectOfClass:[NSDate class] forKey:@"lastUsedAt"];
     }
     return self;
 }

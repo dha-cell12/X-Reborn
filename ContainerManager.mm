@@ -11,6 +11,12 @@
 @implementation ContainerManager
 + (instancetype)shared { static ContainerManager *S; static dispatch_once_t once; dispatch_once(&once, ^{ S=[ContainerManager new]; }); return S; }
 
+- (NSString *)_shmNamespaceForContainer:(NSString *)containerID {
+    NSString *safeContainer = [[containerID stringByReplacingOccurrencesOfString:@"/" withString:@"_"] stringByReplacingOccurrencesOfString:@"." withString:@"_"];
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    return [NSString stringWithFormat:@"%@_%@", safeContainer, uuid];
+}
+
 - (BOOL)useLibCrane {
     Class crane = IXClass(@"CraneManager");
     return crane != nil;
@@ -40,6 +46,7 @@
 - (BOOL)prepareLaunchEnvironmentForContainer:(NSString*)containerID intoEnv:(NSMutableDictionary*)env {
     if (!containerID) return NO;
     env[@"IX_CONTAINER"] = containerID;
+    env[@"IX_SHM_NAMESPACE"] = env[@"IX_SHM_NAMESPACE"] ?: [self _shmNamespaceForContainer:containerID];
     NSString *shim = @"/usr/lib/instancex_container_shim.dylib";
     if ([[NSFileManager defaultManager] fileExistsAtPath:shim]) {
         NSString *existing = env[@"DYLD_INSERT_LIBRARIES"] ?: @"";
@@ -49,6 +56,20 @@
         if (![self useLibCrane]) return NO;
     }
     return YES;
+}
+
+- (void)removeContainerWithID:(NSString *)containerID {
+    if (!containerID.length) return;
+    Class craneCls = IXClass(@"CraneManager");
+    if (craneCls) {
+        id mgr = ((id(*)(id,SEL))objc_msgSend)(craneCls, NSSelectorFromString(@"sharedManager"));
+        SEL sel = NSSelectorFromString(@"removeContainerWithIdentifier:");
+        if (mgr && [mgr respondsToSelector:sel]) {
+            ((void(*)(id,SEL,NSString*))objc_msgSend)(mgr, sel, containerID);
+        }
+    }
+    NSString *base = [NSString stringWithFormat:@"/var/mobile/InstanceX/containers/%@", containerID];
+    [[NSFileManager defaultManager] removeItemAtPath:base error:nil];
 }
 
 @end

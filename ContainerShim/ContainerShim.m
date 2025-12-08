@@ -7,7 +7,11 @@
 #include <pwd.h>
 #include <unistd.h>
 #include <limits.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <errno.h>
+#include <stdarg.h>
 
 typedef char *(*orig_NSHomeDirectory_t)(void);
 static orig_NSHomeDirectory_t orig_NSHomeDirectory = NULL;
@@ -56,4 +60,48 @@ int getpwuid_r(uid_t uid, struct passwd *pwd, char *buf, size_t buflen, struct p
         }
     }
     return ret;
+}
+
+static int should_prefix_shm(const char *name) {
+    if (!name || name[0] == '\0') return 0;
+    if (name[0] != '/') return 0;
+    if (strncmp(name, "/com.apple.", 11) == 0) return 0;
+    if (strncmp(name, "/Apple", 6) == 0 || strncmp(name, "/apple", 6) == 0) return 0;
+    return 1;
+}
+
+static const char *prefixed_shm_name(const char *name) {
+    const char *ns = getenv("IX_SHM_NAMESPACE");
+    if (!ns || !should_prefix_shm(name)) return name;
+    size_t nsLen = strlen(ns);
+    size_t nameLen = strlen(name);
+    static __thread char buf[PATH_MAX];
+    if (nsLen + nameLen + 1 >= sizeof(buf)) return name;
+    if (name[0] == '/') {
+        snprintf(buf, sizeof(buf), "/%s%s", ns, name);
+    } else {
+        snprintf(buf, sizeof(buf), "/%s/%s", ns, name);
+    }
+    return buf;
+}
+
+int shm_open(const char *name, int oflag, ...) {
+    static int (*orig_shm_open)(const char *, int, mode_t) = NULL;
+    if (!orig_shm_open) orig_shm_open = dlsym(RTLD_NEXT, "shm_open");
+    mode_t mode = 0;
+    if (oflag & O_CREAT) {
+        va_list ap;
+        va_start(ap, oflag);
+        mode = (mode_t)va_arg(ap, int);
+        va_end(ap);
+    }
+    const char *prefixed = prefixed_shm_name(name);
+    return orig_shm_open(prefixed, oflag, mode);
+}
+
+int shm_unlink(const char *name) {
+    static int (*orig_shm_unlink)(const char *) = NULL;
+    if (!orig_shm_unlink) orig_shm_unlink = dlsym(RTLD_NEXT, "shm_unlink");
+    const char *prefixed = prefixed_shm_name(name);
+    return orig_shm_unlink(prefixed);
 }

@@ -13,9 +13,12 @@ typedef NS_ENUM(NSInteger, IXLayoutMode) {
 @property(nonatomic, copy) NSString *sceneID;
 @property(nonatomic) pid_t pid;
 @property(nonatomic) NSUInteger slotIndex;
+@property(nonatomic, strong) NSDate *lastUsedAt; // for idle GC
 @end
 
 @interface IXAppState : NSObject
 @property(nonatomic, copy) NSString *bundleID;
 @property(nonatomic) NSMutableArray<IXInstanceRecord*> *instances;
+@property(nonatomic) NSUInteger desiredCount; // persisted target instance count
+@property(nonatomic, strong) NSDate *lastActiveAt; // used for idle GC bookkeeping
 @end
