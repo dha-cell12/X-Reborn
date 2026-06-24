@@ -40,9 +40,17 @@ static CGRect slotFrameForMode(IXLayoutMode mode, NSUInteger slotIdx, CGSize s) 
 static NSArray<UIWindow*> *windowsForBundle(NSString *bundleID) {
     NSMutableArray *out = [NSMutableArray new];
     for (UIWindow *w in UIApplication.sharedApplication.windows) {
-        if (w.windowScene) {
-            NSString *pid = w.windowScene.session.persistentIdentifier ?: @"";
-            if ([pid containsString:bundleID] || (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID])) {
+        // windowScene is iOS 13+. Use @available check for multi-arch build (iOS 10+)
+        if (@available(iOS 13.0, *)) {
+            if (w.windowScene) {
+                NSString *pid = w.windowScene.session.persistentIdentifier ?: @"";
+                if ([pid containsString:bundleID] || (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID])) {
+                    [out addObject:w];
+                }
+            }
+        } else {
+            // Fallback for iOS < 13
+            if (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID]) {
                 [out addObject:w];
             }
         }
