@@ -38,9 +38,10 @@ jobs:
     - name: Build tweak (${{ matrix.scheme }})
       run: |
         make clean || true
+        if [ "${{ matrix.scheme }}" == "rootless" ]; then
+          export THEOS_PACKAGE_SCHEME=rootless
+        fi
         make package FINALPACKAGE=1
-      env:
-        THEOS_PACKAGE_SCHEME: ${{ matrix.scheme }}
         
     - name: Upload DEB artifact (${{ matrix.scheme }})
       uses: actions/upload-artifact@v4

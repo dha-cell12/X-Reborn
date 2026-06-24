@@ -11,12 +11,18 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <stdarg.h>
+#include <dirent.h>
 #import <Foundation/Foundation.h>
 
 // Original functions
 static int (*orig_open)(const char *, int, ...);
 static int (*orig_stat)(const char *, struct stat *);
 static int (*orig_access)(const char *, int);
+static int (*orig_rename)(const char *, const char *);
+static int (*orig_unlink)(const char *);
+static int (*orig_mkdir)(const char *, mode_t);
+static int (*orig_rmdir)(const char *);
+static DIR* (*orig_opendir)(const char *);
 
 static const char *get_container_path() {
     const char *cont = getenv("IX_CONTAINER");
@@ -84,6 +90,57 @@ int IX_access(const char *path, int amode) {
     return orig_access(redirect_path(path), amode);
 }
 
+int IX_rename(const char *old, const char *newp) {
+    if (!orig_rename) orig_rename = dlsym(RTLD_NEXT, "rename");
+    return orig_rename(redirect_path(old), redirect_path(newp));
+}
+
+int IX_unlink(const char *path) {
+    if (!orig_unlink) orig_unlink = dlsym(RTLD_NEXT, "unlink");
+    return orig_unlink(redirect_path(path));
+}
+
+int IX_mkdir(const char *path, mode_t mode) {
+    if (!orig_mkdir) orig_mkdir = dlsym(RTLD_NEXT, "mkdir");
+    return orig_mkdir(redirect_path(path), mode);
+}
+
+int IX_rmdir(const char *path) {
+    if (!orig_rmdir) orig_rmdir = dlsym(RTLD_NEXT, "rmdir");
+    return orig_rmdir(redirect_path(path));
+}
+
+DIR* IX_opendir(const char *path) {
+    if (!orig_opendir) orig_opendir = dlsym(RTLD_NEXT, "opendir");
+    return orig_opendir(redirect_path(path));
+}
+
+// CFPreferences hooks for NSUserDefaults isolation
+static CFPropertyListRef (*orig_CFPreferencesCopyAppValue)(CFStringRef, CFStringRef);
+static void (*orig_CFPreferencesSetAppValue)(CFStringRef, CFPropertyListRef, CFStringRef);
+
+CFPropertyListRef IX_CFPreferencesCopyAppValue(CFStringRef key, CFStringRef applicationID) {
+    if (!orig_CFPreferencesCopyAppValue) orig_CFPreferencesCopyAppValue = dlsym(RTLD_NEXT, "CFPreferencesCopyAppValue");
+    const char *cont = getenv("IX_CONTAINER");
+    if (cont && applicationID) {
+        NSString *newAppID = [NSString stringWithFormat:@"%s.%@", cont, (__bridge NSString *)applicationID];
+        return orig_CFPreferencesCopyAppValue(key, (__bridge CFStringRef)newAppID);
+    }
+    return orig_CFPreferencesCopyAppValue(key, applicationID);
+}
+
+void IX_CFPreferencesSetAppValue(CFStringRef key, CFPropertyListRef value, CFStringRef applicationID) {
+    if (!orig_CFPreferencesSetAppValue) orig_CFPreferencesSetAppValue = dlsym(RTLD_NEXT, "CFPreferencesSetAppValue");
+    const char *cont = getenv("IX_CONTAINER");
+    if (cont && applicationID) {
+        NSString *newAppID = [NSString stringWithFormat:@"%s.%@", cont, (__bridge NSString *)applicationID];
+        orig_CFPreferencesSetAppValue(key, value, (__bridge CFStringRef)newAppID);
+        return;
+    }
+    orig_CFPreferencesSetAppValue(key, value, applicationID);
+}
+
+// Restoration of SHM hooks
 int IX_shm_open(const char *name, int oflag, ...) {
     static int (*orig_shm_open)(const char *, int, mode_t) = NULL;
     if (!orig_shm_open) orig_shm_open = dlsym(RTLD_NEXT, "shm_open");
@@ -94,7 +151,6 @@ int IX_shm_open(const char *name, int oflag, ...) {
         mode = (mode_t)va_arg(ap, int);
         va_end(ap);
     }
-    // Namespace logic handled in previous versions if needed
     return orig_shm_open(name, oflag, mode);
 }
 
@@ -119,5 +175,12 @@ DYLD_INTERPOSE(IX_getenv, getenv)
 DYLD_INTERPOSE(IX_open, open)
 DYLD_INTERPOSE(IX_stat, stat)
 DYLD_INTERPOSE(IX_access, access)
+DYLD_INTERPOSE(IX_rename, rename)
+DYLD_INTERPOSE(IX_unlink, unlink)
+DYLD_INTERPOSE(IX_mkdir, mkdir)
+DYLD_INTERPOSE(IX_rmdir, rmdir)
+DYLD_INTERPOSE(IX_opendir, opendir)
+DYLD_INTERPOSE(IX_CFPreferencesCopyAppValue, CFPreferencesCopyAppValue)
+DYLD_INTERPOSE(IX_CFPreferencesSetAppValue, CFPreferencesSetAppValue)
 DYLD_INTERPOSE(IX_shm_open, shm_open)
 DYLD_INTERPOSE(IX_shm_unlink, shm_unlink)
