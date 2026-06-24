@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = InstanceXPrefs
 
-InstanceXPrefs_FILES = $(wildcard *.m)
+InstanceXPrefs_FILES = InstanceXPrefs.mm
 InstanceXPrefs_FRAMEWORKS = UIKit Preferences
 InstanceXPrefs_PRIVATE_FRAMEWORKS = Preferences
 InstanceXPrefs_INSTALL_PATH = /Library/PreferenceBundles

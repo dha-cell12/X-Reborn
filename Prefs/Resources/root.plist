@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>Title</key><string>InstanceX</string>
+  <key>Title</key>
+  <string>InstanceX</string>
   <key>Items</key>
   <array>
     <dict>
-      <key>cell</key><string>PSGroupCell</string>
-      <key>label</key><string>General</string>
+      <key>cell</key>
+      <string>PSGroupCell</string>
+      <key>label</key>
+      <string>General</string>
     </dict>
     <dict>
-      <key>cell</key><string>PSSwitchCell</string>
-      <key>label</key><string>Enable InstanceX</string>
-      <key>key</key><string>enabled</string>
-      <key>defaults</key><string>com.yourname.instancex</string>
-      <key>default</key><true/>
+      <key>cell</key>
+      <string>PSSwitchCell</string>
+      <key>label</key>
+      <string>Enable InstanceX</string>
+      <key>key</key>
+      <string>enabled</string>
+      <key>defaults</key>
+      <string>com.zodacios.instancex</string>
+      <key>default</key>
+      <true/>
     </dict>
     <dict>
-      <key>cell</key><string>PSButtonCell</string>
-      <key>label</key><string>Respring</string>
-      <key>action</key><string>respring</string>
+      <key>cell</key>
+      <string>PSButtonCell</string>
+      <key>label</key>
+      <string>Respring</string>
+      <key>action</key>
+      <string>respring</string>
     </dict>
     <dict>
-      <key>cell</key><string>PSGroupCell</string>
-      <key>label</key><string>Advanced</string>
+      <key>cell</key>
+      <string>PSGroupCell</string>
+      <key>label</key>
+      <string>Advanced</string>
     </dict>
     <dict>
-      <key>cell</key><string>PSButtonCell</string>
-      <key>label</key><string>Prefer libCrane if available</string>
-      <key>key</key><string>prefer_libcrane</string>
-      <key>defaults</key><string>com.yourname.instancex</string>
+      <key>cell</key>
+      <string>PSSwitchCell</string>
+      <key>label</key>
+      <string>Prefer libCrane if available</string>
+      <key>key</key>
+      <string>prefer_libcrane</string>
+      <key>defaults</key>
+      <string>com.zodacios.instancex</string>
+      <key>default</key>
+      <false/>
     </dict>
   </array>
 </dict>
