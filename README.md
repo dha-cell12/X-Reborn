@@ -5,7 +5,7 @@ Run several instances of one application using libCrane technology
 > Archived. Read Issues for more information.
 
 > [!WARNING]  
-> This tweak only supports iPads running iOS 15. We are not responsible for any bootloops, crashes, loss of data, etc.
+> This tweak supports iPads and iPhones running iOS 15. We are not responsible for any bootloops, crashes, loss of data, etc.
 
 # Stability
 
