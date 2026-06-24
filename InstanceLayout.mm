@@ -3,15 +3,32 @@
 
 static CGRect slotFrameForMode(IXLayoutMode mode, NSUInteger slotIdx, CGSize s) {
     CGFloat w = s.width, h = s.height;
+    BOOL isIPad = (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad);
+
     if (mode == IXLayoutModeTwo) {
-        CGFloat halfW = w/2.0;
-        return CGRectMake(slotIdx==0?0:halfW, 0, halfW, h);
+        if (isIPad) {
+            CGFloat halfW = w/2.0;
+            return CGRectMake(slotIdx==0?0:halfW, 0, halfW, h);
+        } else {
+            // iPhone: Vertical Split (Top/Bottom)
+            CGFloat halfH = h/2.0;
+            return CGRectMake(0, slotIdx==0?0:halfH, w, halfH);
+        }
     } else if (mode == IXLayoutModeThree) {
-        CGFloat halfW = w/2.0;
-        if (slotIdx == 2) return CGRectMake(halfW, 0, halfW, h);
-        CGFloat halfH = h/2.0;
-        return CGRectMake(0, slotIdx==0?0:halfH, halfW, halfH);
+        if (isIPad) {
+            CGFloat halfW = w/2.0;
+            if (slotIdx == 2) return CGRectMake(halfW, 0, halfW, h);
+            CGFloat halfH = h/2.0;
+            return CGRectMake(0, slotIdx==0?0:halfH, halfW, halfH);
+        } else {
+            // iPhone: Tiled (Top, Bottom Left, Bottom Right)
+            CGFloat halfH = h/2.0;
+            if (slotIdx == 0) return CGRectMake(0, 0, w, halfH);
+            CGFloat halfW = w/2.0;
+            return CGRectMake(slotIdx==1?0:halfW, halfH, halfW, halfH);
+        }
     } else {
+        // Mode Four: 2x2 Grid for both iPad and iPhone
         CGFloat halfW = w/2.0, halfH = h/2.0;
         if (slotIdx == 0) return CGRectMake(0,0,halfW,halfH);
         if (slotIdx == 1) return CGRectMake(halfW,0,halfW,halfH);
@@ -23,9 +40,19 @@ static CGRect slotFrameForMode(IXLayoutMode mode, NSUInteger slotIdx, CGSize s) 
 static NSArray<UIWindow*> *windowsForBundle(NSString *bundleID) {
     NSMutableArray *out = [NSMutableArray new];
     for (UIWindow *w in UIApplication.sharedApplication.windows) {
-        if (w.windowScene) {
-            NSString *pid = w.windowScene.session.persistentIdentifier ?: @"";
-            if ([pid containsString:bundleID] || (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID])) {
+        // Use respondsToSelector: instead of @available to avoid linker issues on armv7 CI
+        if ([w respondsToSelector:@selector(windowScene)]) {
+            id scene = [w performSelector:@selector(windowScene)];
+            if (scene) {
+                id session = [scene performSelector:@selector(session)];
+                NSString *pid = [session performSelector:@selector(persistentIdentifier)] ?: @"";
+                if ([pid containsString:bundleID] || (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID])) {
+                    [out addObject:w];
+                }
+            }
+        } else {
+            // Fallback for iOS < 13
+            if (w.accessibilityIdentifier && [w.accessibilityIdentifier containsString:bundleID]) {
                 [out addObject:w];
             }
         }
