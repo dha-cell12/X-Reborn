@@ -2,7 +2,7 @@ Package: com.zodacios.instancex
 Name: InstanceX
 Depends: mobilesubstrate, preferenceloader, ldid
 Version: 1.0.0
-Architecture: iphoneos-arm
+Architecture: iphoneos-arm64
 Description: Run 2-4 isolated instances of the same app using per-instance containers (Crane-style) and layout.
 Maintainer: ZodaciOS
 Section: Tweaks
