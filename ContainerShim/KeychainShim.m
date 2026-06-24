@@ -1,4 +1,3 @@
-// KeychainShim.c
 #include <CoreFoundation/CoreFoundation.h>
 #include <Security/Security.h>
 #include <dlfcn.h>
@@ -11,8 +10,9 @@ static OSStatus (*orig_SecItemDelete)(CFDictionaryRef) = NULL;
 
 static NSString *namespaceKeyForContainer(NSString *orig) {
     const char *c = getenv("IX_CONTAINER");
-    if (!c) return orig;
+    if (!c || !orig) return orig;
     NSString *cid = [NSString stringWithUTF8String:c];
+    if ([orig hasPrefix:cid]) return orig;
     return [cid stringByAppendingFormat:@":%@", orig];
 }
 
@@ -20,10 +20,17 @@ static CFDictionaryRef _namespaceDict(CFDictionaryRef dict) {
     if (!dict) return dict;
     NSDictionary *orig = (__bridge NSDictionary *)dict;
     NSMutableDictionary *m = [NSMutableDictionary dictionaryWithDictionary:orig];
-    id svc = m[(id)kSecAttrService];
-    id acc = m[(id)kSecAttrAccount];
-    if (svc && [svc isKindOfClass:NSString.class]) m[(id)kSecAttrService] = namespaceKeyForContainer(svc);
-    if (acc && [acc isKindOfClass:NSString.class]) m[(id)kSecAttrAccount] = namespaceKeyForContainer(acc);
+
+    // Key identifiers to namespace
+    NSArray *keysToNamespace = @[(id)kSecAttrService, (id)kSecAttrAccount, (id)kSecAttrAccessGroup, (id)kSecAttrLabel];
+
+    for (id key in keysToNamespace) {
+        id value = m[key];
+        if (value && [value isKindOfClass:NSString.class]) {
+            m[key] = namespaceKeyForContainer(value);
+        }
+    }
+
     return CFBridgingRetain(m);
 }
 

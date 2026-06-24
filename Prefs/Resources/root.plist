@@ -10,7 +10,7 @@
       <key>cell</key>
       <string>PSGroupCell</string>
       <key>label</key>
-      <string>General</string>
+      <string>General Settings</string>
     </dict>
     <dict>
       <key>cell</key>
@@ -28,10 +28,28 @@
       <key>cell</key>
       <string>PSButtonCell</string>
       <key>label</key>
-      <string>Respring</string>
+      <string>Apply Changes (Respring)</string>
       <key>action</key>
       <string>respring</string>
     </dict>
+
+    <dict>
+      <key>cell</key>
+      <string>PSGroupCell</string>
+      <key>label</key>
+      <string>Container Management</string>
+      <key>footerText</key>
+      <string>Manage isolated storage containers for your applications.</string>
+    </dict>
+    <dict>
+      <key>cell</key>
+      <string>PSLinkCell</string>
+      <key>label</key>
+      <string>Manage App Containers</string>
+      <key>detail</key>
+      <string>IXAppListController</string>
+    </dict>
+
     <dict>
       <key>cell</key>
       <string>PSGroupCell</string>
@@ -42,13 +60,41 @@
       <key>cell</key>
       <string>PSSwitchCell</string>
       <key>label</key>
-      <string>Prefer libCrane if available</string>
+      <string>Use libCrane Backend</string>
       <key>key</key>
       <string>prefer_libcrane</string>
       <key>defaults</key>
       <string>com.zodacios.instancex</string>
       <key>default</key>
       <false/>
+    </dict>
+    <dict>
+      <key>cell</key>
+      <string>PSLinkListCell</string>
+      <key>label</key>
+      <string>Idle Timeout</string>
+      <key>key</key>
+      <string>idleTimeout</string>
+      <key>defaults</key>
+      <string>com.zodacios.instancex</string>
+      <key>default</key>
+      <integer>300</integer>
+      <key>detail</key>
+      <string>PSListItemsController</string>
+      <key>validValues</key>
+      <array>
+        <integer>60</integer>
+        <integer>300</integer>
+        <integer>600</integer>
+        <integer>1800</integer>
+      </array>
+      <key>validTitles</key>
+      <array>
+        <string>1 Minute</string>
+        <string>5 Minutes</string>
+        <string>10 Minutes</string>
+        <string>30 Minutes</string>
+      </array>
     </dict>
   </array>
 </dict>
