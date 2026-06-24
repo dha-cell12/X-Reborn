@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        scheme: [rootless, rootful]
     
     steps:
     - name: Checkout repository
@@ -32,17 +35,17 @@ jobs:
       run: |
         brew install ldid
         
-    - name: Build tweak
+    - name: Build tweak (${{ matrix.scheme }})
       run: |
         make clean || true
         make package FINALPACKAGE=1
       env:
-        THEOS_PACKAGE_SCHEME: rootless
+        THEOS_PACKAGE_SCHEME: ${{ matrix.scheme }}
         
-    - name: Upload DEB artifact
+    - name: Upload DEB artifact (${{ matrix.scheme }})
       uses: actions/upload-artifact@v4
       with:
-        name: instancex-reborn-deb
+        name: instancex-reborn-deb-${{ matrix.scheme }}
         path: packages/*.deb
         if-no-files-found: error
         
@@ -50,7 +53,7 @@ jobs:
       if: failure()
       uses: actions/upload-artifact@v4
       with:
-        name: build-logs
+        name: build-logs-${{ matrix.scheme }}
         path: |
           .theos/
           *.log

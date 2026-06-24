@@ -15,3 +15,19 @@
     posix_spawn(&pid, "/usr/bin/sbreload", NULL, NULL, (char* const*)args, NULL);
 }
 @end
+
+@interface IXAppListController : PSListController
+@end
+
+@implementation IXAppListController
+- (NSArray *)specifiers {
+    if (!_specifiers) {
+        _specifiers = [NSMutableArray new];
+        PSSpecifier* group = [PSSpecifier groupSpecifierWithName:@"Applications"];
+        [group setProperty:@"Select an app to manage its containers." forKey:@"footerText"];
+        [(NSMutableArray*)_specifiers addObject:group];
+        // TODO: Populate with installed apps that have instances
+    }
+    return _specifiers;
+}
+@end
