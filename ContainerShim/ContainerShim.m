@@ -214,7 +214,11 @@ static const char *prefixed_shm_name(const char *name) {
     const char *ns = getenv("IX_SHM_NAMESPACE");
     if (!ns || !should_prefix_shm(name)) return name;
     static __thread char buf[PATH_MAX];
-    snprintf(buf, sizeof(buf), "/%s%s", ns, name[0] == '/' ? name : [NSString stringWithFormat:@"/%@", name].UTF8String);
+    if (name[0] == '/') {
+        snprintf(buf, sizeof(buf), "/%s%s", ns, name);
+    } else {
+        snprintf(buf, sizeof(buf), "/%s/%s", ns, name);
+    }
     return buf;
 }
 
